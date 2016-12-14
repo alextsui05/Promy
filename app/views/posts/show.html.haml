@@ -1,0 +1,20 @@
+= image_tag @post.song.url(:medium)
+%h2= @post.title
+%p= @post.artist
+%h4= @post.user.name
+%h2
+	= @post.get_upvotes.size
+	Likes
+
+= link_to "Like", like_post_path(@post), method: :get
+
+
+#comment
+	%h2.comment_count= pluralize(@post.comments.count, "Comment")
+	- @comments.each do |comment|
+		.comment
+			%h4.username= comment.user.name
+			%p.content= comment.content
+	= render 'comments/form'
+
+= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }

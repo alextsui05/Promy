@@ -1,0 +1,14 @@
+%h1 All songs
+
+- @posts.each do |post|
+	= link_to (image_tag post.song.url(:small)), post
+	%h2= link_to post.title, post
+	%p
+		= post.comments.count
+		Comments
+	%p
+		= post.get_likes.count
+		Likes
+
+
+= link_to "Submit your song! :)", new_post_path
