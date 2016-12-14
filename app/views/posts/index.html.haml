@@ -1,12 +1,15 @@
+%link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}
 %h1 All songs
 
 - @posts.each do |post|
 	= link_to (image_tag post.song.url(:small)), post
 	%h2= link_to post.title, post
 	%p
+		%i.fa.fa-comment-o
 		= post.comments.count
 		Comments
 	%p
+		%i.fa.fa-heart-o
 		= post.get_likes.count
 		Likes
 
