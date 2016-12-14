@@ -1,4 +1,4 @@
-= image_tag @post.song.url(:medium)
+= audio_tag  @post.song.url, controls: true
 %h2= @post.title
 %p= @post.artist
 %h4= @post.user.name
